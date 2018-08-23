@@ -1,0 +1,6 @@
+import numpy as np
+import pandas as pd
+df=pd.read_csv('Downloads\GasBuddy_brand_prices.csv',sep="|",parse_dates=[6])
+df['date'] = df['date'].dt.date
+df1=df.groupby(['brand','date']).mean()
+df1.to_csv('example.csv')
